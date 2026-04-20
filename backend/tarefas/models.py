@@ -8,9 +8,15 @@ class Tarefas(models.Model):
         ('CANCELADA', 'Cancelada'),
     ]
 
+    PRIORIDADE_CHOICES = [
+        ('URGENTE', 'Urgente'),
+        ('NAO_URGENTE', 'Não urgente'),
+    ]
+
     titulo = models.CharField(max_length=255)
     descricao = models.TextField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='ABERTA')
+    prioridade = models.CharField(max_length=20, choices=PRIORIDADE_CHOICES, default='NAO_URGENTE')
     data_criacao = models.DateTimeField(auto_now_add=True)
     data_entrega = models.DateField()
 
